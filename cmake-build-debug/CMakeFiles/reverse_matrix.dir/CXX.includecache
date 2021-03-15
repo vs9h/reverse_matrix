@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vs9h/git_workspace/reverse_matrix/main.cpp
+iostream
+-
+fstream
+-
+string
+-
+vector
+-
+boost/algorithm/string/split.hpp
+-
+boost/algorithm/string.hpp
+-
+src/matrix.h
+/home/vs9h/git_workspace/reverse_matrix/src/matrix.h
+
+/home/vs9h/git_workspace/reverse_matrix/src/matrix.h
+vector
+-
+iostream
+-
+
