@@ -47,6 +47,7 @@ void check_file(std::string path){
             Matrix matrix(data);
             std::cout << "matrix:" << std::endl;
             matrix.printMatrix();
+            std::cout<<"det = "<<matrix.determinant()<<std::endl;
         }
         else std::cout<<"Error (creating matrix)"<<std::endl;
     }
@@ -59,7 +60,7 @@ const int TEST_COUNT = 4;
 
 int main() {
     setlocale(LC_ALL, "ru");
-    for (int i=1; i<=TEST_COUNT; ++i){
+    for (int i=0; i<=TEST_COUNT; ++i){
         std::string prefix = "../tests/";
         std::string test_number = std::to_string(i);
         std::string postfix = "-matrix_test.txt";
