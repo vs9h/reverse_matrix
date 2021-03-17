@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 #include<boost/algorithm/string/split.hpp>
 #include<boost/algorithm/string.hpp>
 #include "src/matrix.h"
