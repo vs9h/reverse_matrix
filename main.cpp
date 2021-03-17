@@ -45,24 +45,26 @@ void testFile(std::string path){
         if (IS_DEBUG) std::cout<< "file opened"<< endl;
         auto data = parse(file);
         if (isFileValid(data)) {
-            if (IS_DEBUG) std::cout << "normalin" << endl;
             Matrix matrix(data);
-            cout << "matrix:" << endl;
+            cout << "A:" << endl;
             matrix.printMatrix();
             auto det = matrix.determinant();
-            cout<<"det = "<< det << endl;
+            cout<<"det A = "<< det << endl;
             if (det){
-            cout<<"allied matrix:"<< endl;
-            matrix.allied().printMatrix();
+            cout<<"A^{-1}:"<< endl;
+                Matrix reverseMatrix = matrix.inverseMatrix();
+                reverseMatrix.printMatrix();
+                std::cout<<"A*A^{-1}: "<<std::endl;
+                (reverseMatrix*matrix).printMatrix();
             }
             else{
-                cout<<"determinant = 0 => not exists allied matrix = 0"<< endl;
+                cout<<"determinant = 0 => there is no inverse matrix"<< endl;
             }
         }
         else cout<<"Error (creating matrix)"<< endl;
     }
     else{
-        if (IS_DEBUG) cout<< "file isn't opened"<< endl;
+        cout<< "file isn't opened"<< endl;
     }
 }
 

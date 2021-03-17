@@ -34,7 +34,7 @@ Matrix Matrix::transpose() {
     return *this;
 }
 
-Matrix Matrix::allied(){
+Matrix Matrix::inverseMatrix(){
     Matrix allied_matrix(this->size);
     for (int i=0; i<this->size; i++){
         for (int j=0; j<this->size; ++j)

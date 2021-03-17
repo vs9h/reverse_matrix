@@ -73,6 +73,6 @@ public:
 
     Matrix transpose();
     Matrix makeMinor(Matrix& src, int r_excl, int c_excl);
-    Matrix allied();
+    Matrix inverseMatrix();
     double determinant();
 };
