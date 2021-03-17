@@ -1,6 +1,6 @@
 #include "matrix.h"
 
-Matrix Matrix::make_minor(Matrix& src, int r_excl, int c_excl) {
+Matrix Matrix::makeMinor(Matrix& src, int r_excl, int c_excl) {
     Matrix minor(src.getSize()-1);
     for (int i = 0, iminor = 0; i < src.getSize(); ++i) {
         if (i == r_excl)
@@ -22,7 +22,7 @@ double Matrix::determinant() {
 
         double det = 0;
         for (int l = 0; l < size; l++) {
-            det += (l % 2 ? -1: 1) * data[0][l]*make_minor(*this, 0, l).determinant() ; // вычисляем определитель
+            det += (l % 2 ? -1: 1) * data[0][l] * makeMinor(*this, 0, l).determinant() ; // вычисляем определитель
         }
         return det;
 }
@@ -38,7 +38,7 @@ Matrix Matrix::allied(){
     Matrix allied_matrix(this->size);
     for (int i=0; i<this->size; i++){
         for (int j=0; j<this->size; ++j)
-            allied_matrix[i][j]=((i+j) % 2 ? -1: 1)*this->make_minor(*this, i, j).determinant();
+            allied_matrix[i][j]=((i+j) % 2 ? -1: 1)* this->makeMinor(*this, i, j).determinant();
     }
     allied_matrix.transpose();
     auto det = this->determinant();

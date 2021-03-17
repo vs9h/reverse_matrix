@@ -72,7 +72,7 @@ public:
     }
 
     Matrix transpose();
-    Matrix make_minor(Matrix& src, int r_excl, int c_excl);
+    Matrix makeMinor(Matrix& src, int r_excl, int c_excl);
     Matrix allied();
     double determinant();
 };

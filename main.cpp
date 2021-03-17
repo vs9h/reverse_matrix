@@ -26,7 +26,7 @@ std::vector<std::vector<double>> parse(ifstream & file){
     return data;
 }
 
-bool is_file_valid(vector<vector<double>> data){
+bool isFileValid(vector<vector<double>> data){
     int matrix_height = data.size();
     for (int i=0; i<matrix_height; i++){
         if (data[i].size() != matrix_height){
@@ -37,14 +37,14 @@ bool is_file_valid(vector<vector<double>> data){
     return true;
 }
 
-void test_file(std::string path){
+void testFile(std::string path){
     cout << "running file at path: "<< path << endl;
     ifstream file(path);
     if (file.is_open())
     {
         if (IS_DEBUG) std::cout<< "file opened"<< endl;
         auto data = parse(file);
-        if (is_file_valid(data)) {
+        if (isFileValid(data)) {
             if (IS_DEBUG) std::cout << "normalin" << endl;
             Matrix matrix(data);
             cout << "matrix:" << endl;
@@ -74,7 +74,7 @@ int main() {
         std::string prefix = "../tests/";
         std::string test_number = std::to_string(i);
         std::string postfix = "-matrix_test.txt";
-        test_file(prefix.append(test_number).append(postfix));
+        testFile(prefix.append(test_number).append(postfix));
     }
     return 0;
 }
