@@ -6,25 +6,27 @@
 #include<boost/algorithm/string.hpp>
 #include "src/matrix.h"
 
-const bool IS_DEBUG = true;
+using namespace std;
+
+const bool IS_DEBUG = false;
 
 // Parsing ifstream& to vector<vector<double>>
-std::vector<std::vector<double>> parse(std::ifstream & file){
-    std::string line;
-    std::vector<std::vector<double>> data;
+std::vector<std::vector<double>> parse(ifstream & file){
+    string line;
+    vector<vector<double>> data;
     while(getline(file, line)){
-        std::vector<std::string> row_string;
+        vector<string> row_string;
         boost::algorithm::split(row_string, line, boost::is_any_of(" \t \n"));
-        std::vector<double> row;
+        vector<double> row;
         for (auto& number: row_string){
-            row.push_back(std::stod(number));
+            row.push_back(stod(number));
         }
         data.push_back(row);
     }
     return data;
 }
 
-bool is_file_valid(std::vector<std::vector<double>> data){
+bool is_file_valid(vector<vector<double>> data){
     int matrix_height = data.size();
     for (int i=0; i<matrix_height; i++){
         if (data[i].size() != matrix_height){
@@ -35,24 +37,32 @@ bool is_file_valid(std::vector<std::vector<double>> data){
     return true;
 }
 
-void check_file(std::string path){
-    std::cout << "running file at path: "<< path<<std::endl;
-    std::ifstream file(path);
+void test_file(std::string path){
+    cout << "running file at path: "<< path << endl;
+    ifstream file(path);
     if (file.is_open())
     {
-        if (IS_DEBUG) std::cout<< "file opened"<<std::endl;
+        if (IS_DEBUG) std::cout<< "file opened"<< endl;
         auto data = parse(file);
         if (is_file_valid(data)) {
-            if (IS_DEBUG) std::cout << "normalin" << std::endl;
+            if (IS_DEBUG) std::cout << "normalin" << endl;
             Matrix matrix(data);
-            std::cout << "matrix:" << std::endl;
+            cout << "matrix:" << endl;
             matrix.printMatrix();
-            std::cout<<"det = "<<matrix.determinant()<<std::endl;
+            auto det = matrix.determinant();
+            cout<<"det = "<< det << endl;
+            if (det){
+            cout<<"allied matrix:"<< endl;
+            matrix.allied().printMatrix();
+            }
+            else{
+                cout<<"determinant = 0 => not exists allied matrix = 0"<< endl;
+            }
         }
-        else std::cout<<"Error (creating matrix)"<<std::endl;
+        else cout<<"Error (creating matrix)"<< endl;
     }
     else{
-        if (IS_DEBUG) std::cout<< "file isn't opened"<<std::endl;
+        if (IS_DEBUG) cout<< "file isn't opened"<< endl;
     }
 }
 
@@ -64,7 +74,7 @@ int main() {
         std::string prefix = "../tests/";
         std::string test_number = std::to_string(i);
         std::string postfix = "-matrix_test.txt";
-        check_file(prefix.append(test_number).append(postfix));
+        test_file(prefix.append(test_number).append(postfix));
     }
     return 0;
 }
