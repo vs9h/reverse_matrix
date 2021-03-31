@@ -1,5 +1,7 @@
 #include <vector>
 #include <iostream>
+#include <iomanip>
+#include <cmath>
 
 class Matrix{
 private:
@@ -65,7 +67,8 @@ public:
     void printMatrix(){
         for (int i=0; i<size; i++ ){
             for (int j=0; j<size; j++){
-                std::cout<<data[i][j]<<' ';
+                //std::cout << std::fixed << std::setprecision(4)<<data[i][j]<<' ';
+                std::cout << std::setw( 5 )<<std::left << round(data[i][j]*1000)/1000<<' ';
             }
             std::cout<<std::endl;
         }
