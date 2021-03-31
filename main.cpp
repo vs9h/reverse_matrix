@@ -2,13 +2,28 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include<boost/algorithm/string/split.hpp>
-#include<boost/algorithm/string.hpp>
+#include <boost/algorithm/string/split.hpp>
+#include <boost/algorithm/string.hpp>
 #include "src/matrix.h"
 
 using namespace std;
 
 const bool IS_DEBUG = false;
+
+double strtod(const std::string& str){
+    double temp = 0;
+    auto it = str.begin();
+    while (it!=str.end() && *it!='.')
+        temp=temp*10+(int(*(it++))-'0');
+    if (it++ == str.end())
+        return temp;
+    double graduation = 0.1;
+    while (it!=str.end()){
+        temp = temp + graduation * (int(*(it++))-'0');
+        graduation*=0.1;
+    }
+    return temp;
+}
 
 // Parsing ifstream& to vector<vector<double>>
 std::vector<std::vector<double>> parse(ifstream & file){
@@ -19,7 +34,7 @@ std::vector<std::vector<double>> parse(ifstream & file){
         boost::algorithm::split(row_string, line, boost::is_any_of(" \t \n"));
         vector<double> row;
         for (auto& number: row_string){
-            row.push_back(stod(number));
+            row.push_back(strtod(number));
         }
         data.push_back(row);
     }
@@ -30,7 +45,7 @@ bool isFileValid(vector<vector<double>> data){
     int matrix_height = data.size();
     for (int i=0; i<matrix_height; i++){
         if (data[i].size() != matrix_height){
-            if (IS_DEBUG) std::cout<<"Error on "<<i+1<<" row "<<std::endl;
+            std::cout<<"Error on "<<i+1<<" row "<<std::endl;
             return false;
         }
     }
@@ -69,6 +84,7 @@ void testFile(std::string path){
 }
 
 const int TEST_COUNT = 4;
+
 
 int main() {
     setlocale(LC_ALL, "ru");
