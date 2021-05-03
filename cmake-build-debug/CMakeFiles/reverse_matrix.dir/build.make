@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/vs9h/Programs/clion-2020.2/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/145/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/vs9h/Programs/clion-2020.2/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/145/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vs9h/git_workspace/reverse_matrix
+CMAKE_SOURCE_DIR = /home/vs9lh/git_workspace/reverse_matrix
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vs9h/git_workspace/reverse_matrix/cmake-build-debug
+CMAKE_BINARY_DIR = /home/vs9lh/git_workspace/reverse_matrix/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/reverse_matrix.dir/depend.make
@@ -79,29 +79,29 @@ include CMakeFiles/reverse_matrix.dir/flags.make
 
 CMakeFiles/reverse_matrix.dir/main.cpp.o: CMakeFiles/reverse_matrix.dir/flags.make
 CMakeFiles/reverse_matrix.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vs9h/git_workspace/reverse_matrix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/reverse_matrix.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/reverse_matrix.dir/main.cpp.o -c /home/vs9h/git_workspace/reverse_matrix/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vs9lh/git_workspace/reverse_matrix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/reverse_matrix.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/reverse_matrix.dir/main.cpp.o -c /home/vs9lh/git_workspace/reverse_matrix/main.cpp
 
 CMakeFiles/reverse_matrix.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/reverse_matrix.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vs9h/git_workspace/reverse_matrix/main.cpp > CMakeFiles/reverse_matrix.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vs9lh/git_workspace/reverse_matrix/main.cpp > CMakeFiles/reverse_matrix.dir/main.cpp.i
 
 CMakeFiles/reverse_matrix.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/reverse_matrix.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vs9h/git_workspace/reverse_matrix/main.cpp -o CMakeFiles/reverse_matrix.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vs9lh/git_workspace/reverse_matrix/main.cpp -o CMakeFiles/reverse_matrix.dir/main.cpp.s
 
 CMakeFiles/reverse_matrix.dir/src/matrix.cpp.o: CMakeFiles/reverse_matrix.dir/flags.make
 CMakeFiles/reverse_matrix.dir/src/matrix.cpp.o: ../src/matrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vs9h/git_workspace/reverse_matrix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/reverse_matrix.dir/src/matrix.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/reverse_matrix.dir/src/matrix.cpp.o -c /home/vs9h/git_workspace/reverse_matrix/src/matrix.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vs9lh/git_workspace/reverse_matrix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/reverse_matrix.dir/src/matrix.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/reverse_matrix.dir/src/matrix.cpp.o -c /home/vs9lh/git_workspace/reverse_matrix/src/matrix.cpp
 
 CMakeFiles/reverse_matrix.dir/src/matrix.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/reverse_matrix.dir/src/matrix.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vs9h/git_workspace/reverse_matrix/src/matrix.cpp > CMakeFiles/reverse_matrix.dir/src/matrix.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vs9lh/git_workspace/reverse_matrix/src/matrix.cpp > CMakeFiles/reverse_matrix.dir/src/matrix.cpp.i
 
 CMakeFiles/reverse_matrix.dir/src/matrix.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/reverse_matrix.dir/src/matrix.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vs9h/git_workspace/reverse_matrix/src/matrix.cpp -o CMakeFiles/reverse_matrix.dir/src/matrix.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vs9lh/git_workspace/reverse_matrix/src/matrix.cpp -o CMakeFiles/reverse_matrix.dir/src/matrix.cpp.s
 
 # Object files for target reverse_matrix
 reverse_matrix_OBJECTS = \
@@ -115,7 +115,7 @@ reverse_matrix: CMakeFiles/reverse_matrix.dir/main.cpp.o
 reverse_matrix: CMakeFiles/reverse_matrix.dir/src/matrix.cpp.o
 reverse_matrix: CMakeFiles/reverse_matrix.dir/build.make
 reverse_matrix: CMakeFiles/reverse_matrix.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/vs9h/git_workspace/reverse_matrix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable reverse_matrix"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/vs9lh/git_workspace/reverse_matrix/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable reverse_matrix"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/reverse_matrix.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -128,6 +128,6 @@ CMakeFiles/reverse_matrix.dir/clean:
 .PHONY : CMakeFiles/reverse_matrix.dir/clean
 
 CMakeFiles/reverse_matrix.dir/depend:
-	cd /home/vs9h/git_workspace/reverse_matrix/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vs9h/git_workspace/reverse_matrix /home/vs9h/git_workspace/reverse_matrix /home/vs9h/git_workspace/reverse_matrix/cmake-build-debug /home/vs9h/git_workspace/reverse_matrix/cmake-build-debug /home/vs9h/git_workspace/reverse_matrix/cmake-build-debug/CMakeFiles/reverse_matrix.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/vs9lh/git_workspace/reverse_matrix/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vs9lh/git_workspace/reverse_matrix /home/vs9lh/git_workspace/reverse_matrix /home/vs9lh/git_workspace/reverse_matrix/cmake-build-debug /home/vs9lh/git_workspace/reverse_matrix/cmake-build-debug /home/vs9lh/git_workspace/reverse_matrix/cmake-build-debug/CMakeFiles/reverse_matrix.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/reverse_matrix.dir/depend
 

@@ -5,4 +5,5 @@ CMakeFiles/reverse_matrix.dir/main.cpp.o: ../main.cpp
 CMakeFiles/reverse_matrix.dir/main.cpp.o: ../src/matrix.h
 
 CMakeFiles/reverse_matrix.dir/src/matrix.cpp.o: ../src/matrix.cpp
+CMakeFiles/reverse_matrix.dir/src/matrix.cpp.o: ../src/matrix.h
 

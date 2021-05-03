@@ -6,25 +6,33 @@
 
 #IncludeRegexTransform: 
 
-/home/vs9h/git_workspace/reverse_matrix/main.cpp
+/home/vs9lh/git_workspace/reverse_matrix/main.cpp
 iostream
--
-fstream
 -
 string
 -
 vector
+-
+fstream
 -
 boost/algorithm/string/split.hpp
 -
 boost/algorithm/string.hpp
 -
 src/matrix.h
-/home/vs9h/git_workspace/reverse_matrix/src/matrix.h
+/home/vs9lh/git_workspace/reverse_matrix/src/matrix.h
 
-/home/vs9h/git_workspace/reverse_matrix/src/matrix.h
+/home/vs9lh/git_workspace/reverse_matrix/src/matrix.cpp
+matrix.h
+/home/vs9lh/git_workspace/reverse_matrix/src/matrix.h
+
+/home/vs9lh/git_workspace/reverse_matrix/src/matrix.h
 vector
 -
 iostream
+-
+iomanip
+-
+cmath
 -
 
