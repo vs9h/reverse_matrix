@@ -1,15 +1,15 @@
+#pragma once
+
 #include <vector>
 #include <iostream>
 #include <iomanip>
 #include <cmath>
-#include <complex.h>
 
 template<class T>
 class Matrix{
 private:
     size_t size;
     std::vector<std::vector<T>> data;
-
 public:
     explicit Matrix(std::vector<std::vector<T>>& data)
             : size(data.size()) {
@@ -72,7 +72,7 @@ public:
     }
 
     Matrix<T>& operator+(const Matrix<T>& rhs ){
-        if (this->size!=rhs.size) throw std::runtime_error("bad operation");
+        if (this->size!=rhs.size) throw std::runtime_error("incorrect operation");
         for (int i=0; i<size; i++ ){
             for (int j=0; j<size; j++){
                 data[i][j]+=rhs.data[i][j];
@@ -87,10 +87,8 @@ public:
 
     void printMatrix(){
         for (int i=0; i<size; i++ ){
-            for (int j=0; j<size; j++){
+            for (int j=0; j<size; j++)
                 std::cout <<  std::fixed << std::setprecision(2) <<std::setw(5)<<std::left <<data[i][j]<<' ';
-                // std::cout << std::setw(5) << std::left << round(data[i][j]*1000)/1000<<' ';
-            }
             std::cout<<std::endl;
         }
     }
@@ -132,8 +130,7 @@ public:
 
         T det = 0;
         for (int l = 0; l < size; l++) {
-            auto temp = makeMinor(*this, 0, l).determinant();
-            det += temp * data[0][l]*(l % 2 ? -1: 1); // вычисляем определитель
+            det += makeMinor(*this, 0, l).determinant() * data[0][l]*(l % 2 ? -1: 1);
         }
         return det;
     }

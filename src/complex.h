@@ -1,3 +1,5 @@
+#pragma once
+
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -16,6 +18,7 @@ public:
         : x(rhs.x), y(rhs.y) {}
 
     C(double real): x(real), y(0) {}
+
     C(int real): x(real), y(0) {}
 
     C(): x(0),y(0) {}
@@ -85,8 +88,11 @@ public:
     std::string getText() const {
         if (this->y == 0){
             return std::to_string(this->x).substr(0,std::to_string(this->x).length()-5);
-        }
-        else {
+        } else if (this->x == 0){
+            std::string str = std::to_string(this->y).substr(0,std::to_string(this->y).length()-5);
+            str += 'i';
+            return str;
+        } else {
             bool is_positive = this->y > 0;
             std::string str = std::to_string(this->x).substr(0,std::to_string(this->x).length()-5);
             str+= (is_positive) ? '+': '-';
@@ -100,15 +106,20 @@ public:
 std::ostream& operator<<(std::ostream& os, const C& c)
 {   
     os<<std::fixed<<std::setw(10)<<std::left<<c.getText();
-    // os<<std::setprecision(1);
-    // if (c.Im() == 0){
-    //     os << c.Re();
-    // } else if (c.Re() == 0){
-    //     if (c.Im() < 0) os << '-';
-    //     os << std::abs(c.Im()) << 'i';
-    // } else {
-    //     os << c.Re() << (c.Im() > 0 ? "+": "-") << std::abs(c.Im()) << 'i';
-    // }
-    // return os; 
     return os;
 }
+
+// // В этом случае вывод другой, лучше использовать первый вариант
+// std::ostream& operator<<(std::ostream& os, const C& c)
+// {   
+//     os<<std::setprecision(1);
+//     if (c.Im() == 0){
+//         os << c.Re();
+//     } else if (c.Re() == 0){
+//         if (c.Im() < 0) os << '-';
+//         os << std::abs(c.Im()) << 'i';
+//     } else {
+//         os << c.Re() << (c.Im() > 0 ? "+": "-") << std::abs(c.Im()) << 'i';
+//     }
+//     return os;
+// }

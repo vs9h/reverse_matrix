@@ -3,4 +3,4 @@ project(reverse_matrix)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(reverse_matrix main.cpp src/matrix.h src/matrix.cpp src/complex.h)
+add_executable(reverse_matrix main.cpp src/matrix.h src/complex.h src/utils.h)
