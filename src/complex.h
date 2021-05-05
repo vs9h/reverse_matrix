@@ -11,23 +11,13 @@ private:
     double y;
 public:
 
-    C(double real, double imaginary)
+    C(const double real, const double imaginary)
         : x(real), y(imaginary) {}
 
     C(const C& rhs)
         : x(rhs.x), y(rhs.y) {}
 
-    C(double real): x(real), y(0) {}
-
-    C(int real): x(real), y(0) {}
-
-    C(): x(0),y(0) {}
-
-    C& operator=(const double& rhs){
-        this->x = rhs;
-        this->y = 0;
-        return *this;
-    }
+    C(const double real = 0): x(real), y(0) {}
 
     C& operator=(const C& rhs) {
         this->x = rhs.x;
@@ -35,45 +25,44 @@ public:
         return *this;
     }
 
-    C& operator+(const C& rhs){
-        this->x += rhs.x;
-        this->y += rhs.y;
-        return *this;
+    C operator+(const C& rhs){
+        return C(this->x+rhs.x, this->y + rhs.y);
     }
+
+    C operator-(const C& rhs){
+        return C(this->x - rhs.x, this->y - rhs.y);
+    }
+
+    C operator*(const C& rhs){
+        return C(this->x*rhs.x-this->y*rhs.y, this->x*rhs.y+this->y*rhs.x);
+    }
+
+    C operator/(const double& n){
+        return C(this->x/n, this->y/n);
+    }
+
     C& operator+=(const C& rhs){
         this->x += rhs.x;
         this->y += rhs.y;
         return *this;
     }
-    C& operator-(const C& rhs){
-        this->x -= rhs.x;
-        this->y -= rhs.y;
-        return *this;
-    }
+    
     C& operator-=(const C& rhs){
         this->x -= rhs.x;
         this->y -= rhs.y;
         return *this;
     }
-    C& operator*(const C& rhs){
+
+    C& operator*=(const C& rhs){
         double prev_x = this->x;
         this->x = this->x*rhs.x-this->y*rhs.y;
         this->y = prev_x*rhs.y+this->y*rhs.x;
         return *this;
     }
-    C& operator*(const double& rhs){
-        this->x *= rhs;
-        this->y *= rhs;
-        return *this;
-    }
-    C& operator*(const int& rhs){
-        this->x *= rhs;
-        this->y *= rhs;
-        return *this;
-    }
-    C& operator*=(const C& rhs){
-        this->x = this->x*rhs.x-this->y*rhs.y;
-        this->y = this->x*rhs.y+this->y*rhs.x;
+    
+    C operator/=(const double& n){
+        this->x /= n;
+        this->y /= n;
         return *this;
     }
 
@@ -108,18 +97,3 @@ std::ostream& operator<<(std::ostream& os, const C& c)
     os<<std::fixed<<std::setw(10)<<std::left<<c.getText();
     return os;
 }
-
-// // В этом случае вывод другой, лучше использовать первый вариант
-// std::ostream& operator<<(std::ostream& os, const C& c)
-// {   
-//     os<<std::setprecision(1);
-//     if (c.Im() == 0){
-//         os << c.Re();
-//     } else if (c.Re() == 0){
-//         if (c.Im() < 0) os << '-';
-//         os << std::abs(c.Im()) << 'i';
-//     } else {
-//         os << c.Re() << (c.Im() > 0 ? "+": "-") << std::abs(c.Im()) << 'i';
-//     }
-//     return os;
-// }

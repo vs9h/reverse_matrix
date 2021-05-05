@@ -67,6 +67,51 @@ auto make_real_matrix(const vector<vector<string>> & data){
     return Matrix<double>(res);
 }    
 
+void processComplexMatrix(Matrix<C>& matrix){
+    cout << "Matrix type = " << "Complex" << endl;
+    cout << "A:" << endl;
+    matrix.printMatrix();
+    auto det = matrix.determinant();
+    cout << "det A = " << det << endl;
+
+    cout << "****************************" << endl;
+    cout << "Check how operators works:" << endl;
+
+    cout << "A * C(2,3):" << endl;
+    auto mul = matrix * C(2.3); // you can also multiply int, double.
+    mul.printMatrix();
+
+    cout << "B:" << endl;
+    auto sec = Matrix<C>(2,C(0,1));  
+    sec.printMatrix();
+
+    auto sum = matrix + sec;
+    cout << "Sum (A+B):" << endl;
+    sum.printMatrix();
+
+    auto multiply = matrix * sec;
+    cout << "Multiply (A*B):" << endl;
+    multiply.printMatrix();
+
+    cout << "Stop checking." << endl;
+    cout << "****************************" << endl;
+}
+
+void processRealMatrix(Matrix<double>& matrix){
+    cout << "Matrix type = " << "Real" << endl;
+            
+    matrix.printMatrix();
+    auto det = matrix.determinant();
+    cout << "Det A = "<< det << endl;
+    if (det){
+        cout << "A^{-1}:" << endl;
+        auto reverseMatrix = matrix.inverseMatrix();
+        reverseMatrix.printMatrix();
+        cout << "A*A^{-1}: " << endl;
+        (reverseMatrix*matrix).printMatrix();
+    } else cout << "Determinant = 0 => there is no inverse matrix" << endl;
+}
+
 void testFile(string path){
     cout << "running file at path: " << path << endl;
     std::ifstream file(path);
@@ -78,40 +123,12 @@ void testFile(string path){
         if (!isFileValid(data)) { throw std::runtime_error("File isn't valid"); };
         auto matrix_type = define_matrix_type(data);
 
-        if (static_cast<int>(matrix_type)==1){
-            cout << "Matrix type = " << "Complex" << endl;
-            cout << "A:" << endl;
-            auto matrix = make_complex_matrix(data);
-            matrix.printMatrix();
-            auto det = matrix.determinant();
-            cout<< "det A = " << det << endl;
-
-            // auto mul = matrix*2.3;// тут можно и на C(a,b) умножать.
-            // mul.printMatrix();
-            // auto secm = Matrix<C>(2,C(0,1));  
-            // cout<<"secm"<<endl;
-            // secm.printMatrix();
-            // cout<<"res"<<endl;
-            // auto new_m = matrix+secm;
-            // new_m.printMatrix();
-            // auto multiply = matrix*secm;
-            // cout<<"multiply"<<endl;
-            // multiply.printMatrix();
-        } else {
-            cout << "Matrix type = " << "Real" << endl;
+        if (static_cast<int>(matrix_type)==0){
             auto matrix = make_real_matrix(data);
-            matrix.printMatrix();
-            auto det = matrix.determinant();
-            cout << "Det A = "<< det << endl;
-            if (det){
-                cout << "A^{-1}:" << endl;
-                auto reverseMatrix = matrix.inverseMatrix();
-                reverseMatrix.printMatrix();
-                cout << "A*A^{-1}: " << endl;
-                (reverseMatrix*matrix).printMatrix();
-            }
-            else cout << "Determinant = 0 => there is no inverse matrix" << endl;
-        }
-    }
-    else cout << "file isn't opened" << endl;
+            processRealMatrix(matrix);
+        } else if (static_cast<int>(matrix_type)==1) {
+            auto matrix = make_complex_matrix(data);
+            processComplexMatrix(matrix);
+        } else throw std::runtime_error("error with matrix_type");
+    } else cout << "file isn't opened" << endl;
 }
