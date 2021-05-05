@@ -75,21 +75,23 @@ public:
     }
 
     std::string getText() const {
+        std::string str = "";
         if (this->y == 0){
-            return std::to_string(this->x).substr(0,std::to_string(this->x).length()-5);
+            str = std::to_string(this->x);
+            str = str.substr(0,str.length()-5);
         } else if (this->x == 0){
-            std::string str = std::to_string(this->y).substr(0,std::to_string(this->y).length()-5);
-            str += 'i';
-            return str;
+            str = std::to_string(this->y);
+            str = str.substr(0,str.length()-5) + 'i';
         } else {
             bool is_positive = this->y > 0;
-            std::string str = std::to_string(this->x).substr(0,std::to_string(this->x).length()-5);
-            str+= (is_positive) ? '+': '-';
-            str+= std::to_string(std::abs(this->y)).substr(0,std::to_string(std::abs(this->y)).length()-5) + 'i';
-            return str;
+            str = std::to_string(this->x);
+            str =  str.substr(0, str.length()-5);
+            str += (is_positive) ? '+': '-';
+            auto temp = std::to_string(std::abs(this->y));
+            str+= temp.substr(0,temp.length()-5) + 'i';
         }
+        return str;
     }
-
 };
 
 std::ostream& operator<<(std::ostream& os, const C& c)
