@@ -41,6 +41,12 @@ public:
         return C(this->x/n, this->y/n);
     }
 
+    C operator/(const C& rhs){
+        auto real = (x*rhs.x+y*rhs.y)/(rhs.x*rhs.x+rhs.y*rhs.y);
+        auto imag = (rhs.x*y-x*rhs.y)/(rhs.x*rhs.x+rhs.y*rhs.y);
+        return C(real, imag);
+    }
+
     C& operator+=(const C& rhs){
         this->x += rhs.x;
         this->y += rhs.y;
@@ -65,6 +71,18 @@ public:
         this->y /= n;
         return *this;
     }
+
+    bool operator==(const C& rhs){
+        if (this->x == rhs.x && this->y == rhs.y)
+            return true;
+        else
+            return false;
+    }
+
+    bool operator!=(const C& rhs){
+        return !(*this==rhs);
+    }
+
 
     double Re() const {
         return this->x;

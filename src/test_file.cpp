@@ -68,7 +68,7 @@ void processComplexMatrix(Matrix<C>& matrix){
     cout << "A:" << endl;
     matrix.printMatrix();
     auto det = matrix.determinant();
-    cout << "det A = " << det << endl;
+    cout << "det A = " << det << ", det(G) = "<< matrix.determinantElementary() << endl;
 
     cout << "****************************" << endl;
     cout << "Check how operators works:" << endl;
@@ -98,7 +98,7 @@ void processRealMatrix(Matrix<double>& matrix){
             
     matrix.printMatrix();
     auto det = matrix.determinant();
-    cout << "Det A = "<< det << endl;
+    cout << "Det A = "<< det << ", det(G) = "<< matrix.determinantElementary() << endl;
     if (det){
         cout << "A^{-1}:" << endl;
         auto reverseMatrix = matrix.inverseMatrix();

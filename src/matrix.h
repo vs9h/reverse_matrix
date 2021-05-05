@@ -142,4 +142,37 @@ public:
             det += makeMinor(*this, 0, l).determinant() * data[0][l]*(l % 2 ? -1: 1);
         return det;
     }
+
+    void swapRows(int f, int s){
+        auto temp = this->data[f];
+        this->data[f] = this->data[s];
+        this->data[s] = temp;
+    }
+
+    T determinantElementary() {
+        auto temp = Matrix(*this);
+        for (size_t i = 0; i< this->size; ++i){
+            if (temp.data[i][i]==0){
+                for (size_t k=i+1; k<size; ++k){
+                    if (temp.data[k][i]!=0){
+                        temp.swapRows(i,k);
+                        break;
+                    }
+                }
+            }
+            if (temp.data[i][i]!=0){
+                for (size_t k=i+1; k<size; ++k){
+                    auto mn = temp.data[k][i]/temp.data[i][i];
+                    for (size_t j = i; j<size; ++j)
+                        temp.data[k][j]= temp.data[k][j]-mn*temp.data[i][j];
+                } 
+            } else return T(0);
+        }
+        
+        T det = 1;
+        for (size_t i = 0; i!= size; ++i)
+            det*=temp.data[i][i];
+        return det;
+    }
+    
 };
