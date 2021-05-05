@@ -12,6 +12,6 @@ std::string fileNumberToPath(int i){
 
 int main() {
     for (int i=0; i<=TEST_COUNT; ++i)
-        testFile(fileNumberToPath(0));
+        testFile(fileNumberToPath(i));
     return 0;
 }
