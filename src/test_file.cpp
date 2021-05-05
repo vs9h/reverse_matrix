@@ -122,10 +122,10 @@ void testFile(string path){
         if (!isFileValid(data)) { throw std::runtime_error("File isn't valid"); };
         auto matrix_type = define_matrix_type(data);
 
-        if (static_cast<int>(matrix_type)==0){
+        if (static_cast<int>(matrix_type) == 0){
             auto matrix = make_real_matrix(data);
             processRealMatrix(matrix);
-        } else if (static_cast<int>(matrix_type)==1) {
+        } else if (static_cast<int>(matrix_type) == 1) {
             auto matrix = make_complex_matrix(data);
             processComplexMatrix(matrix);
         } else throw std::runtime_error("error with matrix_type");

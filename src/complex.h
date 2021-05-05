@@ -19,25 +19,25 @@ public:
 
     C(const double real = 0): x(real), y(0) {}
 
-    C& operator=(const C& rhs) {
+    C& operator=(const C& rhs){
         this->x = rhs.x;
         this->y = rhs.y;
         return *this;
     }
 
-    C operator+(const C& rhs){
+    C operator+(const C& rhs) const {
         return C(this->x+rhs.x, this->y + rhs.y);
     }
 
-    C operator-(const C& rhs){
+    C operator-(const C& rhs) const{
         return C(this->x - rhs.x, this->y - rhs.y);
     }
 
-    C operator*(const C& rhs){
+    C operator*(const C& rhs) const{
         return C(this->x*rhs.x-this->y*rhs.y, this->x*rhs.y+this->y*rhs.x);
     }
 
-    C operator/(const double& n){
+    C operator/(const double& n) const{
         return C(this->x/n, this->y/n);
     }
 
