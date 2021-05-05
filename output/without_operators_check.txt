@@ -1,0 +1,76 @@
+running file at path: ../tests/0-matrix_test.txt
+Matrix type = Real
+1.00  2.00  
+3.00  4.00  
+Det A = -2.00
+A^{-1}:
+-2.00 1.00  
+1.50  -0.50 
+A*A^{-1}: 
+1.00  0.00  
+0.00  1.00  
+running file at path: ../tests/1-matrix_test.txt
+Matrix type = Real
+1.00  2.00  3.00  
+4.00  5.00  6.00  
+7.00  8.00  9.00  
+Det A = 0.00
+Determinant = 0 => there is no inverse matrix
+running file at path: ../tests/2-matrix_test.txt
+Matrix type = Real
+48.00 67.00 676.00 
+29.00 783.00 23.00 
+27.00 788.00 2.00  
+Det A = 399573.00
+A^{-1}:
+-0.04 1.33  -1.32 
+0.00  -0.05 0.05  
+0.00  -0.09 0.09  
+A*A^{-1}: 
+1.00  0.00  0.00  
+0.00  1.00  -0.00 
+0.00  0.00  1.00  
+running file at path: ../tests/3-matrix_test.txt
+Matrix type = Real
+1.00  2.00  0.00  
+2.00  0.00  3.00  
+2.00  0.00  4.00  
+Det A = -4.00
+A^{-1}:
+-0.00 2.00  -1.50 
+0.50  -1.00 0.75  
+-0.00 -1.00 1.00  
+A*A^{-1}: 
+1.00  0.00  0.00  
+0.00  1.00  0.00  
+0.00  0.00  1.00  
+running file at path: ../tests/4-matrix_test.txt
+Matrix type = Real
+4.00  8.00  7.30  2.90  
+3.00  89.70 2.00  2.00  
+3.00  3.00  89.00 2.00  
+30.80 32.00 92.00 9.00  
+Det A = -371837.07
+A^{-1}:
+-0.14 -0.01 -0.05 0.06  
+-0.01 0.01  0.00  -0.00 
+-0.01 0.00  0.01  -0.00 
+0.57  -0.03 0.03  -0.08 
+A*A^{-1}: 
+1.00  0.00  0.00  0.00  
+-0.00 1.00  0.00  0.00  
+-0.00 -0.00 1.00  -0.00 
+0.00  0.00  0.00  1.00  
+running file at path: ../tests/5-matrix_test.txt
+Matrix type = Complex
+A:
+-1.0+1.0i  1.0-1.0i   
+1.0+1.0i   2.0-1.0i   
+det A = -3.0+3.0i 
+running file at path: ../tests/6-matrix_test.txt
+Matrix type = Complex
+A:
+12.0+2.0i  -2.3-7.3i  19.0       
+99.0i      -18.2+1.0i 2.0i       
+190.0      89.2+2.0i  289.0-3.2i 
+det A = -206786.5+222940.0i

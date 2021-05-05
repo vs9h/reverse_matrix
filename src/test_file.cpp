@@ -117,7 +117,6 @@ void testFile(string path){
     std::ifstream file(path);
     if (file.is_open())
     {
-        // cout<< "file opened"<< endl;
         auto data = parse(file);
         
         if (!isFileValid(data)) { throw std::runtime_error("File isn't valid"); };
