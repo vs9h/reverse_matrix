@@ -70,27 +70,27 @@ void processComplexMatrix(Matrix<C>& matrix){
     auto det = matrix.determinant();
     cout << "det A = " << det << ", det(G) = "<< matrix.determinantElementary() << endl;
 
-    cout << "****************************" << endl;
-    cout << "Check how operators works:" << endl;
+    // cout << "****************************" << endl;
+    // cout << "Check how operators works:" << endl;
 
-    cout << "A * C(2,3):" << endl;
-    auto mul = matrix * C(2.3); // you can also multiply int, double.
-    mul.printMatrix();
+    // cout << "A * C(2,3):" << endl;
+    // auto mul = matrix * C(2.3); // you can also multiply int, double.
+    // mul.printMatrix();
 
-    cout << "B:" << endl;
-    auto sec = Matrix<C>(2,C(0,1));  
-    sec.printMatrix();
+    // cout << "B:" << endl;
+    // auto sec = Matrix<C>(2,C(0,1));  
+    // sec.printMatrix();
 
-    auto sum = matrix + sec;
-    cout << "Sum (A+B):" << endl;
-    sum.printMatrix();
+    // auto sum = matrix + sec;
+    // cout << "Sum (A+B):" << endl;
+    // sum.printMatrix();
 
-    auto multiply = matrix * sec;
-    cout << "Multiply (A*B):" << endl;
-    multiply.printMatrix();
+    // auto multiply = matrix * sec;
+    // cout << "Multiply (A*B):" << endl;
+    // multiply.printMatrix();
 
-    cout << "Stop checking." << endl;
-    cout << "****************************" << endl;
+    // cout << "Stop checking." << endl;
+    // cout << "****************************" << endl;
 }
 
 void processRealMatrix(Matrix<double>& matrix){
