@@ -34,15 +34,11 @@ bool isFileValid(vector<vector<string>> data){
 enum class Matrix_Type { Real, Complex };
 
 Matrix_Type define_matrix_type(vector<vector<string>> data){
-    bool is_complex = false;
-    for (const auto& row_string:data){
-        if (is_complex) break;
-        for (const auto& str: row_string){
-            if (!is_complex && str.find('i') != string::npos)
-                is_complex = true;
-        }
-    }
-    return (is_complex) ? Matrix_Type::Complex : Matrix_Type::Real;
+    for (const auto& row_string:data)
+        for (const auto& str: row_string)
+            if (str.find('i') != string::npos)
+                return Matrix_Type::Complex;
+    return Matrix_Type::Real;
 }
 
 auto make_complex_matrix(const vector<vector<string>> & data){
