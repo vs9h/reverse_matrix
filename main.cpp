@@ -1,7 +1,7 @@
 #include <string>
 #include "src/test_file.cpp"
 
-const int TEST_COUNT = 6;
+const int TEST_COUNT = 4;
 
 int main() {
     for (int i=0; i<=TEST_COUNT; ++i){

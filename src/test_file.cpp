@@ -69,28 +69,6 @@ void processComplexMatrix(Matrix<C>& matrix){
     matrix.printMatrix();
     auto det = matrix.determinant();
     cout << "det A = " << det << endl;
-
-    cout << "****************************" << endl;
-    cout << "Check how operators works:" << endl;
-
-    cout << "A * C(2,3):" << endl;
-    auto mul = matrix * C(2.3); // you can also multiply int, double.
-    mul.printMatrix();
-
-    cout << "B:" << endl;
-    auto sec = Matrix<C>(2,C(0,1));  
-    sec.printMatrix();
-
-    auto sum = matrix + sec;
-    cout << "Sum (A+B):" << endl;
-    sum.printMatrix();
-
-    auto multiply = matrix * sec;
-    cout << "Multiply (A*B):" << endl;
-    multiply.printMatrix();
-
-    cout << "Stop checking." << endl;
-    cout << "****************************" << endl;
 }
 
 void processRealMatrix(Matrix<double>& matrix){
@@ -99,13 +77,6 @@ void processRealMatrix(Matrix<double>& matrix){
     matrix.printMatrix();
     auto det = matrix.determinant();
     cout << "Det A = "<< det << endl;
-    if (det){
-        cout << "A^{-1}:" << endl;
-        auto reverseMatrix = matrix.inverseMatrix();
-        reverseMatrix.printMatrix();
-        cout << "A*A^{-1}: " << endl;
-        (reverseMatrix*matrix).printMatrix();
-    } else cout << "Determinant = 0 => there is no inverse matrix" << endl;
 }
 
 void testFile(string path){
